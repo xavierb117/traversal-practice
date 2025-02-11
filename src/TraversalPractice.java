@@ -14,19 +14,6 @@ public class TraversalPractice {
   }
 
   /**
-   * Returns the maximum value stored in a tree.
-   * Assumes all values are positive.
-   * Edge case:
-   *   Returns 0 if node is null.
-   * 
-   * @param node The root of the tree
-   * @return the max value
-   */
-  public static int maxVal(Node<Integer> node) {
-    return 0;
-  }
-
-  /**
    * Prints the odd values of the nodes in a tree.
    * Each value is printed on a separate line.
    * The nodes are traversed post-order.
@@ -46,6 +33,19 @@ public class TraversalPractice {
    * @return the sum 
    */
   public static int treeSum(Node<Integer> node) {
+    return 0;
+  }
+
+  /**
+   * Returns the maximum value stored in a tree.
+   * Assumes all values are positive.
+   * Edge case:
+   *   Returns 0 if node is null.
+   * 
+   * @param node The root of the tree
+   * @return the max value
+   */
+  public static int maxVal(Node<Integer> node) {
     return 0;
   }
 
