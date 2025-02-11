@@ -26,7 +26,7 @@ public class TraversalPracticeTest {
 
     /*
      * =========================================================================
-     *  1) TESTS FOR printNodesWithOneChild(Node<T> node)
+     *  TESTS FOR printNodesWithOneChild(Node<T> node)
      *     - Must traverse PRE-ORDER
      *     - Print nodes that have EXACTLY one child
      *     - Generic method, so we will also test with Strings
@@ -140,7 +140,7 @@ public class TraversalPracticeTest {
 
     /*
      * =========================================================================
-     *  2) TESTS FOR maxVal(Node<Integer> node)
+     *  TESTS FOR maxVal(Node<Integer> node)
      *     - Returns the maximum value in the tree
      *     - Returns 0 if the tree is null
      *     - All values are assumed positive
@@ -219,7 +219,7 @@ public class TraversalPracticeTest {
 
     /*
      * =========================================================================
-     *  3) TESTS FOR printOddNodes(Node<Integer> node)
+     *  TESTS FOR printOddNodes(Node<Integer> node)
      *     - Print odd-valued nodes in POST-ORDER
      *     - Each value on its own line
      *     - If null root, prints nothing
@@ -318,7 +318,7 @@ public class TraversalPracticeTest {
 
     /*
      * =========================================================================
-     *  4) TESTS FOR treeSum(Node<Integer> node)
+     *  TESTS FOR treeSum(Node<Integer> node)
      *     - Return sum of values in tree
      *     - Return 0 if node is null
      * =========================================================================
@@ -383,7 +383,7 @@ public class TraversalPracticeTest {
 
     /*
      * =========================================================================
-     *  5) TESTS FOR numLevels(Node<T> node)
+     *  TESTS FOR numLevels(Node<T> node)
      *     - Return # of levels in tree
      *     - Return 0 if node is null
      *     - Return 1 if there's only a root with no children
@@ -412,13 +412,15 @@ public class TraversalPracticeTest {
            5
           /
          2
+        /
+       9
         */
         Node<Integer> root = new Node<>(10,
-                new Node<>(5, new Node<>(2, null, null), null),
+                new Node<>(5, new Node<>(2, new Node<>(9, null, null), null), null),
                 null
         );
-        assertEquals(3, TraversalPractice.numLevels(root),
-                "Expected 3 levels in a chain of height 3");
+        assertEquals(4, TraversalPractice.numLevels(root),
+                "Expected 4 levels in a chain of height 4");
     }
 
     @Test
