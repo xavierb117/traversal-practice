@@ -6,14 +6,17 @@ import java.io.PrintStream;
 public class TraversalPracticeTest {
 
     // We will capture System.out in these tests to verify output of print methods
+    // You do not need to memorize how to do this, but look at it with curiosity!
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
 
+    // Before each test set up a fake system out to capture output
     @BeforeEach
     void setUp() {
         System.setOut(new PrintStream(outContent));
     }
 
+    // After each test go back to the real system out
     @AfterEach
     void tearDown() {
         // Restore original System.out
@@ -59,20 +62,6 @@ public class TraversalPracticeTest {
              2  7    20
                  \
                  9
-         Pre-order traversal order: 10 -> 4 -> 2 -> 7 -> 9 -> 15 -> 20
-
-         Let's identify exactly one-child nodes:
-           - 10 has 2 children (4 and 15) -> not printed
-           - 4 has 2 children (2 and 7)   -> not printed
-           - 2 has 0 children            -> not printed
-           - 7 has 1 child (right = 9)   -> PRINT (7)
-           - 9 has 0 children           -> not printed
-           - 15 has 1 child (right = 20) -> PRINT (15)
-           - 20 has 0 children          -> not printed
-
-         We expect output in pre-order: 
-            7
-            15
         */
         Node<Integer> root = new Node<>(10,
                 new Node<>(4,
@@ -99,10 +88,6 @@ public class TraversalPracticeTest {
             50   120
            /  \  /  \
          25  75 110 130
-
-         - All nodes that exist have 0 or 2 children. 
-         - Pre-order: 99 -> 50 -> 25 -> 75 -> 120 -> 110 -> 130
-         - None with exactly one child -> no output
         */
         Node<Integer> root = new Node<>(99,
                 new Node<>(50,
@@ -186,8 +171,6 @@ public class TraversalPracticeTest {
            2  7  11  20
                 / 
                18
-
-         Max is 20.
         */
         Node<Integer> root = new Node<>(10,
                 new Node<>(3,
@@ -217,7 +200,6 @@ public class TraversalPracticeTest {
             13  25
                / \
               19  32
-         Max is 42 
         */
         Node<Integer> root = new Node<>(42,
                 new Node<>(17,
@@ -282,27 +264,6 @@ public class TraversalPracticeTest {
              3  8    15
                 /    /  \
                7   11   19
-
-         Post-order means: left subtree (post-order), right subtree (post-order), root.
-
-         Let's label odd nodes:
-            10 (even)
-            5 (odd)
-            16 (even)
-            3 (odd)
-            8 (even)
-            15 (odd)
-            7 (odd)
-            11 (odd)
-            19 (odd)
-
-         Post-order traversal is:
-             3 -> 8 -> 5 -> 7 -> 11 -> 19 -> 15 -> 16 -> 10
-         
-         Among these, the ODD values in that order:
-             3 -> 5 -> 7 -> 11 -> 19 -> 15
-         
-         We'll confirm they print in that sequence, each on its own line.
         */
         Node<Integer> root = new Node<>(10,
                 new Node<>(5,
@@ -323,7 +284,7 @@ public class TraversalPracticeTest {
         TraversalPractice.printOddNodes(root);
 
         String[] lines = outContent.toString().trim().split("\\r?\\n");
-        String[] expected = { "3", "5", "7", "11", "19", "15" };
+        String[] expected = { "3", "7", "5", "11", "19", "15" };
         assertEquals(expected.length, lines.length, 
             "Expected 6 odd values in post-order");
         for (int i = 0; i < expected.length; i++) {
@@ -340,7 +301,6 @@ public class TraversalPracticeTest {
               4   6
                  / \
                 8  10
-         All even, so we expect no output
         */
         Node<Integer> root = new Node<>(2,
                 new Node<>(4, null, null),
@@ -385,8 +345,6 @@ public class TraversalPracticeTest {
               5    20
              / \
             2   7
-           
-         Sum = 10 + 5 + 20 + 2 + 7 = 44
         */
         Node<Integer> root = new Node<>(10,
                 new Node<>(5,
@@ -410,7 +368,6 @@ public class TraversalPracticeTest {
               5  10
              /
             4
-         Sum = 3 + 12 + 1 + 5 + 4 + 10 = 35
         */
         Node<Integer> root = new Node<>(3,
                 new Node<>(12, null, null),
@@ -455,7 +412,6 @@ public class TraversalPracticeTest {
            5
           /
          2
-        This is effectively a chain, 3 levels
         */
         Node<Integer> root = new Node<>(10,
                 new Node<>(5, new Node<>(2, null, null), null),
@@ -473,7 +429,6 @@ public class TraversalPracticeTest {
               7    30
              / \   / \
             3  10 25  40
-        This tree has exactly 3 levels
         */
         Node<Integer> root = new Node<>(15,
                 new Node<>(7,
@@ -497,10 +452,6 @@ public class TraversalPracticeTest {
          "left"   "right"
                   /
             "sub-left"
-        This tree has 3 levels:
-          - Level 1: root
-          - Level 2: left, right
-          - Level 3: sub-left
         */
         Node<String> root = new Node<>("root",
                 new Node<>("left", null, null),
