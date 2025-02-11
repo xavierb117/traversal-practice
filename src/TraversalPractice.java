@@ -1,5 +1,15 @@
 public class TraversalPractice {
   
+  /**
+   * Prints the odd values of the nodes in a tree.
+   * Each value is printed on a separate line.
+   * The nodes are traversed post-order.
+   * 
+   * @param node The root of the tree to print
+   */
+  public static void printOddNodes(Node<Integer> node) {
+
+  }
 
   /**
    * Prints the values of the nodes that have exactly one child in a tree.
@@ -11,17 +21,6 @@ public class TraversalPractice {
    */
   public static <T> void printNodesWithOneChild(Node<T> node) {
     
-  }
-
-  /**
-   * Prints the odd values of the nodes in a tree.
-   * Each value is printed on a separate line.
-   * The nodes are traversed post-order.
-   * 
-   * @param node The root of the tree to print
-   */
-  public static void printOddNodes(Node<Integer> node) {
-
   }
 
     /**
