@@ -9,7 +9,7 @@ public class TraversalPractice {
    * @param <T> The type of value the nodes hold
    * @param node The root of the tree to print
    */
-  private static <T> void printNodesWithOneChild(Node<T> node) {
+  public static <T> void printNodesWithOneChild(Node<T> node) {
     
   }
 
@@ -22,7 +22,7 @@ public class TraversalPractice {
    * @param node The root of the tree
    * @return the max value
    */
-  private static int maxVal(Node<Integer> node) {
+  public static int maxVal(Node<Integer> node) {
     return 0;
   }
 
@@ -33,7 +33,7 @@ public class TraversalPractice {
    * 
    * @param node The root of the tree to print
    */
-  private static void printOddNodes(Node<Integer> node) {
+  public static void printOddNodes(Node<Integer> node) {
 
   }
 
@@ -45,7 +45,7 @@ public class TraversalPractice {
    * @param node The root of the tree
    * @return the sum 
    */
-  private static int treeSum(Node<Integer> node) {
+  public static int treeSum(Node<Integer> node) {
     return 0;
   }
 
@@ -58,7 +58,7 @@ public class TraversalPractice {
    * @param node The root of the tree
    * @return The number of levels in the tree
    */
-  private static <T> int numLevels(Node<T> node) {
+  public static <T> int numLevels(Node<T> node) {
     return 0;
   }
 
