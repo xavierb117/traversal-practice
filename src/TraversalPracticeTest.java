@@ -1,6 +1,7 @@
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.*;
 import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
 import java.io.PrintStream;
 
 public class TraversalPracticeTest {
@@ -13,7 +14,7 @@ public class TraversalPracticeTest {
     // Before each test set up a fake system out to capture output
     @BeforeEach
     void setUp() {
-        System.setOut(new PrintStream(outContent));
+        System.setOut(new PrintStream(new TeeOutputStream(outContent, originalOut)));
     }
 
     // After each test go back to the real system out
@@ -465,4 +466,47 @@ public class TraversalPracticeTest {
         assertEquals(3, TraversalPractice.numLevels(root),
                 "String tree has 3 levels");
     }
+
+  
+  // Used for testing purposes so you can still see your print statements when debugging
+  // You do not need to modify this 
+  static class TeeOutputStream extends OutputStream {
+    private final OutputStream first;
+    private final OutputStream second;
+
+    public TeeOutputStream(OutputStream first, OutputStream second) {
+      this.first = first;
+      this.second = second;
+    }
+
+    @Override
+    public void write(int b) {
+      try {
+        first.write(b);
+        second.write(b);
+      } catch (Exception e) {
+        throw new RuntimeException("Error writing to TeeOutputStream", e);
+      }
+    }
+
+    @Override
+    public void flush() {
+      try {
+        first.flush();
+        second.flush();
+      } catch (Exception e) {
+        throw new RuntimeException("Error flushing TeeOutputStream", e);
+      }
+    }
+
+    @Override
+    public void close() {
+      try {
+        first.close();
+        second.close();
+      } catch (Exception e) {
+        throw new RuntimeException("Error closing TeeOutputStream", e);
+      }
+    }
+  }
 }
