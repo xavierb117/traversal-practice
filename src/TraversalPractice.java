@@ -1,15 +1,5 @@
 public class TraversalPractice {
-  private static class Node<T> {
-    T value;
-    Node<T> left;
-    Node<T> right;
-
-    public Node(T value, Node<T> left, Node<T> right) {
-      this.value = value;
-      this.left = left;
-      this.right = right;
-    }
-  }
+  
 
   /**
    * Prints the values of the nodes that have exactly one child in a tree.
