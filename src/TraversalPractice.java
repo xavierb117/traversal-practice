@@ -7,8 +7,13 @@ public class TraversalPractice {
    * 
    * @param node The root of the tree to print
    */
-  public static void printOddNodes(Node<Integer> node) {
-
+  public static void printOddNodes(Node<Integer> node) {                  
+    if (node == null) return;
+    printOddNodes(node.left);
+    printOddNodes(node.right);
+    if (node.value % 2 != 0) {
+      System.out.println(node.value);
+    }
   }
 
   /**
