@@ -99,7 +99,12 @@ public class TraversalPractice {
 
      // Replace the below line to create a tree 
      // as represented in the diagram above
-     Node<Integer> smallTree = null;
+     Node<Integer> smallTree = new Node<>(99, null, null);
+     smallTree.left = new Node<>(45, null ,null);
+     smallTree.left.left = new Node<>(9, null, null);
+     smallTree.left.right = new Node<>(5, null, null);
+     smallTree.right = new Node<>(82, null, null);
+     smallTree.right = new Node<>(16, null, null);
 
 
     /*
